@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 interface HexagonCardProps {
   children?: ReactNode;
@@ -8,12 +8,13 @@ interface HexagonCardProps {
 }
 
 export function HexagonCard({ children, className = "", delay = 0 }: HexagonCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
+      initial={shouldReduceMotion ? undefined : { opacity: 0, y: 20 }}
+      animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      transition={shouldReduceMotion ? undefined : { duration: 0.5, delay }}
       className={`relative group ${className}`}
     >
       {/* Hexagon border effect */}

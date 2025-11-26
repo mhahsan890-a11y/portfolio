@@ -13,7 +13,7 @@ export function RoboticNav() {
       setScrollProgress(scrolled);
 
       // Determine active section
-      const sections = ["hero", "about", "skills", "projects", "contact"];
+      const sections = ["hero", "about", "skills", "experience", "contact"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -34,7 +34,7 @@ export function RoboticNav() {
     { id: "hero", icon: Terminal, label: "INIT" },
     { id: "about", icon: User, label: "PROFILE" },
     { id: "skills", icon: Code, label: "SKILLS" },
-    { id: "projects", icon: Briefcase, label: "PROJECTS" },
+    { id: "experience", icon: Briefcase, label: "EXPERIENCE" },
     { id: "contact", icon: Mail, label: "CONTACT" },
   ];
 
